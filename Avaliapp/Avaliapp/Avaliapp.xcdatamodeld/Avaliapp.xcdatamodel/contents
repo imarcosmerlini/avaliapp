@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Automatic">
+    <entity name="Avaliacao" representedClassName=".Avaliacao" syncable="YES">
+        <attribute name="ambiente" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="atendimento" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="comentario" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cupomFiscal" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="produto" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="estabelecimento" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Estabelecimento" inverseName="avaliacoes" inverseEntity="Estabelecimento" syncable="YES"/>
+        <relationship name="usuario" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Usuario" inverseName="avaliacoes" inverseEntity="Usuario" syncable="YES"/>
+    </entity>
+    <entity name="Cupom" representedClassName=".Cupom" syncable="YES">
+        <attribute name="codigo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descricao" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="estabelecimento" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Estabelecimento" inverseName="cupons" inverseEntity="Estabelecimento" syncable="YES"/>
+        <relationship name="usuario" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Usuario" inverseName="cupons" inverseEntity="Usuario" syncable="YES"/>
+    </entity>
+    <entity name="Estabelecimento" representedClassName=".Estabelecimento" syncable="YES">
+        <attribute name="ambiente" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="atendimento" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="cnpj" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idMapa" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="logo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="produto" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="avaliacoes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Avaliacao" inverseName="estabelecimento" inverseEntity="Avaliacao" syncable="YES"/>
+        <relationship name="cupons" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cupom" inverseName="estabelecimento" inverseEntity="Cupom" syncable="YES"/>
+    </entity>
+    <entity name="Usuario" representedClassName=".Usuario" syncable="YES">
+        <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dataNascimento" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="senha" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="avaliacoes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Avaliacao" inverseName="usuario" inverseEntity="Avaliacao" syncable="YES"/>
+        <relationship name="cupons" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cupom" inverseName="usuario" inverseEntity="Cupom" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Avaliacao" positionX="-299" positionY="-261" width="128" height="148"/>
+        <element name="Cupom" positionX="-36" positionY="18" width="128" height="118"/>
+        <element name="Estabelecimento" positionX="-263" positionY="9" width="128" height="208"/>
+        <element name="Usuario" positionX="-11" positionY="-261" width="128" height="150"/>
+    </elements>
+</model>
